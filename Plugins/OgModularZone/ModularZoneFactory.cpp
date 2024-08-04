@@ -320,16 +320,16 @@ ZoneInfo ModularZoneFactory::_loadZoneDescription(Ogre::String filename)
             //portal dimensions
             Ogre::Real width = 0;
             Ogre::Real height = 0;
-            if(pElem->QueryFloatAttribute("width",&width)!=TIXML_SUCCESS)width = 2.0;//on failure set to default
-            if(pElem->QueryFloatAttribute("height",&height)!=TIXML_SUCCESS)height = 2.0;//on failure set to default
+            if(pElem->QueryDoubleAttribute("width",&width)!=TIXML_SUCCESS)width = 2.0;//on failure set to default
+            if(pElem->QueryDoubleAttribute("height",&height)!=TIXML_SUCCESS)height = 2.0;//on failure set to default
             //position
             pData = pElem->FirstChild("position")->ToElement();
             if (pData)
             {
                 //TODO: error handling - default values will not work
-                if(pData->QueryFloatAttribute("x",&position.x)!=TIXML_SUCCESS)position.x=0.0f;//on failure ???
-                if(pData->QueryFloatAttribute("y",&position.y)!=TIXML_SUCCESS)position.y=0.0f;//on failure ???
-                if(pData->QueryFloatAttribute("z",&position.z)!=TIXML_SUCCESS)position.z=0.0f;//on failure ???
+                if(pData->QueryDoubleAttribute("x",&position.x)!=TIXML_SUCCESS)position.x=0.0f;//on failure ???
+                if(pData->QueryDoubleAttribute("y",&position.y)!=TIXML_SUCCESS)position.y=0.0f;//on failure ???
+                if(pData->QueryDoubleAttribute("z",&position.z)!=TIXML_SUCCESS)position.z=0.0f;//on failure ???
             }
             //orientation
             pData = pElem->FirstChild("orientation")->ToElement();
@@ -337,10 +337,10 @@ ZoneInfo ModularZoneFactory::_loadZoneDescription(Ogre::String filename)
             {
 
                 //TODO: error handling - default values will not work
-                if(pData->QueryFloatAttribute("x",&orientation.x)!=TIXML_SUCCESS)orientation.x=0.0f;//on failure ???
-                if(pData->QueryFloatAttribute("y",&orientation.y)!=TIXML_SUCCESS)orientation.y=0.0f;//on failure ???
-                if(pData->QueryFloatAttribute("z",&orientation.z)!=TIXML_SUCCESS)orientation.z=0.0f;//on failure ???
-                if(pData->QueryFloatAttribute("w",&orientation.w)!=TIXML_SUCCESS)orientation.w=1.0f;//on failure ???
+                if(pData->QueryDoubleAttribute("x",&orientation.x)!=TIXML_SUCCESS)orientation.x=0.0f;//on failure ???
+                if(pData->QueryDoubleAttribute("y",&orientation.y)!=TIXML_SUCCESS)orientation.y=0.0f;//on failure ???
+                if(pData->QueryDoubleAttribute("z",&orientation.z)!=TIXML_SUCCESS)orientation.z=0.0f;//on failure ???
+                if(pData->QueryDoubleAttribute("w",&orientation.w)!=TIXML_SUCCESS)orientation.w=1.0f;//on failure ???
             }
 
             portal.mHeight = height;

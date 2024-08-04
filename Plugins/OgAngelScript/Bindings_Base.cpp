@@ -201,16 +201,16 @@ namespace Ogitors
         r = engine->RegisterObjectMethod("CameraEditor", "Vector3 getDirection()", asMETHODPR(CCameraEditor, getDirection, (), Ogre::Vector3), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("CameraEditor", "void setClipDistance(const Vector2 &in)", asMETHODPR(CCameraEditor, setClipDistance, (const Ogre::Vector2&), void), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("CameraEditor", "Vector2 getClipDistance()", asMETHODPR(CCameraEditor, getClipDistance, (), Ogre::Vector2), asCALL_THISCALL);assert(r >= 0);
-        r = engine->RegisterObjectMethod("CameraEditor", "void setFOV(float)", asMETHODPR(CCameraEditor, setFOV, (float), void), asCALL_THISCALL);assert(r >= 0);
-        r = engine->RegisterObjectMethod("CameraEditor", "float getFOV()", asMETHODPR(CCameraEditor, getFOV, (), float), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("CameraEditor", "void setFOV()", asMETHODPR(CCameraEditor, setFOV, (Ogre::Real), void), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("CameraEditor", "Ogre::Real getFOV()", asMETHODPR(CCameraEditor, getFOV, (), Ogre::Real), asCALL_THISCALL);assert(r >= 0);
 
         r = engine->RegisterObjectMethod("CameraEditor", "void setPolygonMode(PolygonMode)", asMETHOD(CCameraEditor, setPolygonMode), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("CameraEditor", "PolygonMode getPolygonMode()", asMETHOD(CCameraEditor, getPolygonMode), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("CameraEditor", "void setViewMode(CameraViewMode)", asMETHOD(CCameraEditor, setViewMode), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("CameraEditor", "CameraViewMode getViewMode()", asMETHOD(CCameraEditor, getViewMode), asCALL_THISCALL);assert(r >= 0);
-        r = engine->RegisterObjectMethod("CameraEditor", "void yaw(float)", asMETHOD(CCameraEditor, yaw), asCALL_THISCALL);assert(r >= 0);
-        r = engine->RegisterObjectMethod("CameraEditor", "void pitch(float)", asMETHOD(CCameraEditor, pitch), asCALL_THISCALL);assert(r >= 0);
-        r = engine->RegisterObjectMethod("CameraEditor", "void roll(float)", asMETHOD(CCameraEditor, roll), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("CameraEditor", "void yaw(Ogre::Real)", asMETHOD(CCameraEditor, yaw), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("CameraEditor", "void pitch(Ogre::Real)", asMETHOD(CCameraEditor, pitch), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("CameraEditor", "void roll(Ogre::Real)", asMETHOD(CCameraEditor, roll), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("CameraEditor", "void lookAt(const Vector2 &in)", asMETHOD(CCameraEditor, lookAt), asCALL_THISCALL);assert(r >= 0);
 
         r = engine->RegisterObjectMethod("LightEditor", "void setPosition(const Vector3 &in)", asMETHODPR(CLightEditor, setPosition, (const Ogre::Vector3&), void), asCALL_THISCALL);assert(r >= 0);
@@ -226,8 +226,8 @@ namespace Ogitors
         r = engine->RegisterObjectMethod("LightEditor", "Vector3 getAttenuation()", asMETHOD(CLightEditor, getAttenuation), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("LightEditor", "void setLightType(LightType)", asMETHOD(CLightEditor, setLightType), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("LightEditor", "LightType getLightType()", asMETHOD(CLightEditor, getLightType), asCALL_THISCALL);assert(r >= 0);
-        r = engine->RegisterObjectMethod("LightEditor", "void setPower(float)", asMETHOD(CLightEditor, setPower), asCALL_THISCALL);assert(r >= 0);
-        r = engine->RegisterObjectMethod("LightEditor", "float getPower()", asMETHOD(CLightEditor, getPower), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("LightEditor", "void setPower(Ogre::Real)", asMETHOD(CLightEditor, setPower), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("LightEditor", "Ogre::Real getPower()", asMETHOD(CLightEditor, getPower), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("LightEditor", "void setCastShadows(bool)", asMETHOD(CLightEditor, setCastShadows), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("LightEditor", "bool getCastShadows()", asMETHOD(CLightEditor, getCastShadows), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("LightEditor", "void setDiffuse(const ColourValue &in)", asMETHOD(CLightEditor, setDiffuse), asCALL_THISCALL);assert(r >= 0);
@@ -252,12 +252,12 @@ namespace Ogitors
 
 
         r = engine->RegisterObjectMethod("TerrainGroupEditor", "bool hitTest(Ray, Vector3 &out)", asMETHOD(CTerrainGroupEditor, hitTest), asCALL_THISCALL);assert(r >= 0);
-        r = engine->RegisterObjectMethod("TerrainGroupEditor", "float getHeightAt(float, float)", asMETHOD(CTerrainGroupEditor, getHeightAt), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("TerrainGroupEditor", "Ogre::Real getHeightAt(Ogre::Real, Ogre::Real)", asMETHOD(CTerrainGroupEditor, getHeightAt), asCALL_THISCALL);assert(r >= 0);
 
-        r = engine->RegisterObjectMethod("TerrainPageEditor", "int addLayer(string &in, string &in, float, bool)", asMETHOD(CTerrainPageEditor, _createNewLayer), asCALL_THISCALL);assert(r >= 0);
-        r = engine->RegisterObjectMethod("TerrainPageEditor", "void changeLayer(int, string &in, string &in, float)", asMETHOD(CTerrainPageEditor, _changeLayer), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("TerrainPageEditor", "int addLayer(string &in, string &in, Ogre::Real, bool)", asMETHOD(CTerrainPageEditor, _createNewLayer), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("TerrainPageEditor", "void changeLayer(int, string &in, string &in, Ogre::Real)", asMETHOD(CTerrainPageEditor, _changeLayer), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("TerrainPageEditor", "void deleteLayer(int)", asMETHOD(CTerrainPageEditor, _deleteLayer), asCALL_THISCALL);assert(r >= 0);
-        r = engine->RegisterObjectMethod("TerrainPageEditor", "bool importHeightMap(string, float, float)", asMETHODPR(CTerrainPageEditor, importHeightMap, (Ogre::String, Ogre::Real, Ogre::Real), bool), asCALL_THISCALL);assert(r >= 0);
+        r = engine->RegisterObjectMethod("TerrainPageEditor", "bool importHeightMap(string, Ogre::Real, Ogre::Real)", asMETHODPR(CTerrainPageEditor, importHeightMap, (Ogre::String, Ogre::Real, Ogre::Real), bool), asCALL_THISCALL);assert(r >= 0);
         r = engine->RegisterObjectMethod("TerrainPageEditor", "bool importBlendMap(int, string)", asMETHODPR(CTerrainPageEditor, importBlendMap, (int, Ogre::String), bool), asCALL_THISCALL);assert(r >= 0);
 
     }

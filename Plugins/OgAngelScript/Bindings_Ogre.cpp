@@ -41,7 +41,7 @@ namespace Ogitors
         new(self) Ogre::ColourValue();
 	}
 
-    static void ColourValueDefaultConstructor2(float r, float g, float b, float a, Ogre::ColourValue *self)
+    static void ColourValueDefaultConstructor2(Ogre::Real r, Ogre::Real g, Ogre::Real b, Ogre::Real a, Ogre::ColourValue *self)
 	{
         new(self) Ogre::ColourValue(r, g, b, a);
 	}
@@ -136,21 +136,21 @@ namespace Ogitors
 		int r;
 
         r = engine->RegisterObjectType("Sphere", sizeof(Ogre::Sphere), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLFLOATS); assert( r >= 0 );
-		r = engine->RegisterObjectBehaviour("Sphere", asBEHAVE_CONSTRUCT,  "void f(const Vector3 &in, float)",	asFUNCTION(SphereDefaultConstructor),	asCALL_CDECL_OBJLAST); assert(r >= 0);
+		r = engine->RegisterObjectBehaviour("Sphere", asBEHAVE_CONSTRUCT,  "void f(const Vector3 &in, Ogre::Real)",	asFUNCTION(SphereDefaultConstructor),	asCALL_CDECL_OBJLAST); assert(r >= 0);
         r = engine->RegisterObjectBehaviour("Sphere", asBEHAVE_CONSTRUCT,  "void f(const Sphere &in)",    asFUNCTION(CopyConstructSphere), asCALL_CDECL_OBJLAST); assert( r >= 0 );
 	    r = engine->RegisterObjectBehaviour("Sphere", asBEHAVE_DESTRUCT,   "void f()",                    asFUNCTION(DestructSphere),  asCALL_CDECL_OBJLAST); assert( r >= 0 );
 	    r = engine->RegisterObjectMethod("Sphere", "Sphere &opAssign(Sphere&in)", asFUNCTION(SphereAssignment), asCALL_CDECL_OBJLAST); assert( r >= 0 );
 
         r = engine->RegisterObjectType("ColourValue", sizeof(Ogre::ColourValue), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLFLOATS); assert( r >= 0 );
 		r = engine->RegisterObjectBehaviour("ColourValue", asBEHAVE_CONSTRUCT,  "void f()",	asFUNCTION(ColourValueDefaultConstructor),	asCALL_CDECL_OBJLAST); assert(r >= 0);
-		r = engine->RegisterObjectBehaviour("ColourValue", asBEHAVE_CONSTRUCT,  "void f(float, float, float, float)",	asFUNCTION(ColourValueDefaultConstructor2),	asCALL_CDECL_OBJLAST); assert(r >= 0);
+		r = engine->RegisterObjectBehaviour("ColourValue", asBEHAVE_CONSTRUCT,  "void f(Ogre::Real, Ogre::Real, Ogre::Real, Ogre::Real)",	asFUNCTION(ColourValueDefaultConstructor2),	asCALL_CDECL_OBJLAST); assert(r >= 0);
         r = engine->RegisterObjectBehaviour("ColourValue", asBEHAVE_CONSTRUCT,  "void f(const ColourValue &in)",    asFUNCTION(CopyConstructColourValue), asCALL_CDECL_OBJLAST); assert( r >= 0 );
 	    r = engine->RegisterObjectBehaviour("ColourValue", asBEHAVE_DESTRUCT,   "void f()",                    asFUNCTION(DestructColourValue),  asCALL_CDECL_OBJLAST); assert( r >= 0 );
 	    r = engine->RegisterObjectMethod("ColourValue", "ColourValue &opAssign(ColourValue&in)", asFUNCTION(ColourValueAssignment), asCALL_CDECL_OBJLAST); assert( r >= 0 );
-		r = engine->RegisterObjectProperty("ColourValue", "float r", offsetof(Ogre::ColourValue, r)); assert( r >= 0 );
-		r = engine->RegisterObjectProperty("ColourValue", "float g", offsetof(Ogre::ColourValue, g)); assert( r >= 0 );
-		r = engine->RegisterObjectProperty("ColourValue", "float b", offsetof(Ogre::ColourValue, b)); assert( r >= 0 );
-		r = engine->RegisterObjectProperty("ColourValue", "float a", offsetof(Ogre::ColourValue, a)); assert( r >= 0 );
+		r = engine->RegisterObjectProperty("ColourValue", "Ogre::Real r", offsetof(Ogre::ColourValue, r)); assert( r >= 0 );
+		r = engine->RegisterObjectProperty("ColourValue", "Ogre::Real g", offsetof(Ogre::ColourValue, g)); assert( r >= 0 );
+		r = engine->RegisterObjectProperty("ColourValue", "Ogre::Real b", offsetof(Ogre::ColourValue, b)); assert( r >= 0 );
+		r = engine->RegisterObjectProperty("ColourValue", "Ogre::Real a", offsetof(Ogre::ColourValue, a)); assert( r >= 0 );
 
         r = engine->RegisterObjectType("Ray", sizeof(Ogre::Ray), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLFLOATS); assert( r >= 0 );
 		r = engine->RegisterObjectBehaviour("Ray", asBEHAVE_CONSTRUCT,  "void f()",	asFUNCTION(RayDefaultConstructor),	asCALL_CDECL_OBJLAST); assert(r >= 0);
@@ -177,9 +177,9 @@ namespace Ogitors
         r = engine->RegisterObjectMethod("AxisAlignedBox", "const Vector3& getMinimum()",	asMETHODPR(Ogre::AxisAlignedBox, getMinimum, (void) const, const Ogre::Vector3&),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("AxisAlignedBox", "const Vector3& getMaximum()",	asMETHODPR(Ogre::AxisAlignedBox, getMaximum, (void) const, const Ogre::Vector3&),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("AxisAlignedBox", "void setMinimum(const Vector3 &in)",	asMETHODPR(Ogre::AxisAlignedBox, setMinimum, (const Ogre::Vector3&), void),	asCALL_THISCALL); assert(r >= 0);
-		r = engine->RegisterObjectMethod("AxisAlignedBox", "void setMinimum(float, float, float)",	asMETHODPR(Ogre::AxisAlignedBox, setMinimum, (float, float, float), void),	asCALL_THISCALL); assert(r >= 0);
+		r = engine->RegisterObjectMethod("AxisAlignedBox", "void setMinimum(Ogre::Real, Ogre::Real, Ogre::Real)",	asMETHODPR(Ogre::AxisAlignedBox, setMinimum, (Ogre::Real, Ogre::Real, Ogre::Real), void),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("AxisAlignedBox", "void setMaximum(const Vector3 &in)",	asMETHODPR(Ogre::AxisAlignedBox, setMaximum, (const Ogre::Vector3&), void),	asCALL_THISCALL); assert(r >= 0);
-		r = engine->RegisterObjectMethod("AxisAlignedBox", "void setMaximum(float, float, float)",	asMETHODPR(Ogre::AxisAlignedBox, setMaximum, (float, float, float), void),	asCALL_THISCALL); assert(r >= 0);
+		r = engine->RegisterObjectMethod("AxisAlignedBox", "void setMaximum(Ogre::Real, Ogre::Real, Ogre::Real)",	asMETHODPR(Ogre::AxisAlignedBox, setMaximum, (Ogre::Real, Ogre::Real, Ogre::Real), void),	asCALL_THISCALL); assert(r >= 0);
         r = engine->RegisterObjectMethod("AxisAlignedBox", "void merge(const AxisAlignedBox &in)",	asMETHODPR(Ogre::AxisAlignedBox, merge, (const Ogre::AxisAlignedBox&), void),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("AxisAlignedBox", "void merge(const Vector3 &in)",	asMETHODPR(Ogre::AxisAlignedBox, merge, (const Ogre::Vector3&), void),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("AxisAlignedBox", "void setNull()", asMETHOD(Ogre::AxisAlignedBox, setNull),	asCALL_THISCALL); assert(r >= 0);
@@ -191,7 +191,7 @@ namespace Ogitors
         r = engine->RegisterObjectMethod("AxisAlignedBox", "bool intersects(const Sphere &in)",	asMETHODPR(Ogre::AxisAlignedBox, intersects, (const Ogre::Sphere&) const, bool),	asCALL_THISCALL); assert(r >= 0);
         r = engine->RegisterObjectMethod("AxisAlignedBox", "bool intersects(const Vector3 &in)",	asMETHODPR(Ogre::AxisAlignedBox, intersects, (const Ogre::Vector3&) const, bool),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("AxisAlignedBox", "AxisAlignedBox intersection(const AxisAlignedBox &in)",	asMETHOD(Ogre::AxisAlignedBox, intersection),	asCALL_THISCALL); assert(r >= 0);
-		r = engine->RegisterObjectMethod("AxisAlignedBox", "float volume()",	asMETHOD(Ogre::AxisAlignedBox, volume),	asCALL_THISCALL); assert(r >= 0);
+		r = engine->RegisterObjectMethod("AxisAlignedBox", "Ogre::Real volume()",	asMETHOD(Ogre::AxisAlignedBox, volume),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("AxisAlignedBox", "void scale(const Vector3 &in)",	asMETHOD(Ogre::AxisAlignedBox, scale),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("AxisAlignedBox", "Vector3 getCenter()",	asMETHOD(Ogre::AxisAlignedBox, getCenter),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("AxisAlignedBox", "Vector3 getSize()",	asMETHOD(Ogre::AxisAlignedBox, getSize),	asCALL_THISCALL); assert(r >= 0);

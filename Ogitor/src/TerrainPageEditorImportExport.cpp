@@ -713,7 +713,7 @@ bool CTerrainPageEditor::exportHeightMap(Ogre::String path, Ogre::String filenam
         }
 
 
-        float scale = fMax - fMin;
+        Ogre::Real scale = fMax - fMin;
         if(scale == 0.0f)
             scale = 1.0f;
 
@@ -721,7 +721,7 @@ bool CTerrainPageEditor::exportHeightMap(Ogre::String path, Ogre::String filenam
 
         for(int px = 0;px < numvertexes;px++)
         {
-            float val = std::max(data[px], fMin);
+            Ogre::Real val = std::max((Ogre::Real)data[px], fMin);
             val = std::min(val, fMax);
             idata[px] = (unsigned short)((val - fMin) * scale);
         }

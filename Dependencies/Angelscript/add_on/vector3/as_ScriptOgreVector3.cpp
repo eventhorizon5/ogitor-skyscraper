@@ -96,7 +96,7 @@
         r = engine->RegisterObjectMethod("Vector2", "Vector2 &opAssign(Vector2&in)", asFUNCTION(Vector2Assignment), asCALL_CDECL_OBJLAST); assert( r >= 0 );
 		r = engine->RegisterObjectMethod("Vector2", "Vector2 opAdd(const Vector2 &in) const",			asMETHODPR(Ogre::Vector2, operator+, (const Ogre::Vector2&) const,	Ogre::Vector2),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("Vector2", "Vector2 opSub(const Vector2 &in) const",			asMETHODPR(Ogre::Vector2, operator-, (const Ogre::Vector2&) const,	Ogre::Vector2),	asCALL_THISCALL); assert(r >= 0);
-		r = engine->RegisterObjectMethod("Vector2", "Vector2 opMul(float) const",						asMETHODPR(Ogre::Vector2, operator*, (float) const,					Ogre::Vector2),	asCALL_THISCALL); assert(r >= 0);
+		r = engine->RegisterObjectMethod("Vector2", "Vector2 opMul(Ogre::Real) const",						asMETHODPR(Ogre::Vector2, operator*, (Ogre::Real) const,					Ogre::Vector2),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("Vector2", "Vector2 opNeg() const",							asMETHODPR(Ogre::Vector2, operator-, () const,						Ogre::Vector2),	asCALL_THISCALL); assert(r >= 0);
 
 
@@ -115,7 +115,7 @@
         r = engine->RegisterObjectMethod("Vector3", "Vector3 crossProduct(const Vector3 &in) const",	asMETHOD(Ogre::Vector3, crossProduct),		asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("Vector3", "Vector3 opAdd(const Vector3 &in) const",			asMETHODPR(Ogre::Vector3, operator+, (const Ogre::Vector3&) const,	Ogre::Vector3),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("Vector3", "Vector3 opSub(const Vector3 &in) const",			asMETHODPR(Ogre::Vector3, operator-, (const Ogre::Vector3&) const,	Ogre::Vector3),	asCALL_THISCALL); assert(r >= 0);
-		r = engine->RegisterObjectMethod("Vector3", "Vector3 opMul(float) const",						asMETHODPR(Ogre::Vector3, operator*, (float) const,					Ogre::Vector3),	asCALL_THISCALL); assert(r >= 0);
+		r = engine->RegisterObjectMethod("Vector3", "Vector3 opMul(Ogre::Real) const",						asMETHODPR(Ogre::Vector3, operator*, (Ogre::Real) const,					Ogre::Vector3),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("Vector3", "Vector3 opNeg() const",							asMETHODPR(Ogre::Vector3, operator-, () const,						Ogre::Vector3),	asCALL_THISCALL); assert(r >= 0);
 
 
@@ -132,6 +132,6 @@
         r = engine->RegisterObjectMethod("Vector4", "Vector4 &opAssign(Vector4&in)", asFUNCTION(Vector4Assignment), asCALL_CDECL_OBJLAST); assert( r >= 0 );
 		r = engine->RegisterObjectMethod("Vector4", "Vector4 opAdd(const Vector4 &in) const",			asMETHODPR(Ogre::Vector4, operator+, (const Ogre::Vector4&) const,	Ogre::Vector4),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("Vector4", "Vector4 opSub(const Vector4 &in) const",			asMETHODPR(Ogre::Vector4, operator-, (const Ogre::Vector4&) const,	Ogre::Vector4),	asCALL_THISCALL); assert(r >= 0);
-		r = engine->RegisterObjectMethod("Vector4", "Vector4 opMul(float) const",						asMETHODPR(Ogre::Vector4, operator*, (float) const,					Ogre::Vector4),	asCALL_THISCALL); assert(r >= 0);
+		r = engine->RegisterObjectMethod("Vector4", "Vector4 opMul(Ogre::Real) const",						asMETHODPR(Ogre::Vector4, operator*, (Ogre::Real) const,					Ogre::Vector4),	asCALL_THISCALL); assert(r >= 0);
 		r = engine->RegisterObjectMethod("Vector4", "Vector4 opNeg() const",							asMETHODPR(Ogre::Vector4, operator-, () const,						Ogre::Vector4),	asCALL_THISCALL); assert(r >= 0);
     }
