@@ -176,6 +176,7 @@ endif()
 
 install(TARGETS Ogitor
         LIBRARY DESTINATION lib
+        FRAMEWORK DESTINATION lib
         ARCHIVE DESTINATION lib
         RUNTIME DESTINATION bin)
 
